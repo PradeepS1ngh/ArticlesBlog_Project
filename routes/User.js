@@ -10,7 +10,7 @@ var jwt = require('jsonwebtoken');
 const config = require('config');
 
 //@router   POST  /api/user/
-//@desc     Register a User
+//@desc     Register new User
 //@access   Public
 router.post('/',[
     body('name',"Please Enter the Name").not().isEmpty(),
@@ -19,6 +19,8 @@ router.post('/',[
     body('phone','Enter valid phone Number').isLength({ min: 10 }),
     body('password','Enter password of length atleast 5').isLength({ min: 5 }),
 ], async (req,res) => {
+
+    // validation Check
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });

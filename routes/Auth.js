@@ -14,7 +14,7 @@ const config = require('config');
 const auth = require('../Middleware/auth');
 
 //@route   GET /api/auth
-//@desc    auth check
+//@desc    Get logged in User
 //@access  private
 router.get('/',auth,async (req,res) => {
     try {
@@ -27,9 +27,8 @@ router.get('/',auth,async (req,res) => {
 
 
 //@route   POST /api/auth
-//@desc    auth check
+//@desc    Auth User & get Token
 //@access  public  
-
 router.post('/',[
     body('username' , "Please Enter UserName").not().isEmpty(),
     body('password','Please Enter Password').not().isEmpty()
