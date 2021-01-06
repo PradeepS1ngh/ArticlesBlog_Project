@@ -30,7 +30,7 @@ router.post('/',[
     try {
         let user = await User.findOne({username});
         if(user){
-            return res.json({msg : "User Already Exists"})
+            return res.status(400).json({msg : "User Already Exists"})
         }
 
         user = new User({name,email,phone,proffession,age,username,password});
@@ -49,11 +49,10 @@ router.post('/',[
 
         jwt.sign(payload,config.get('jwtSecret'),{expiresIn : 30000},(err,token) => {
             if(err) throw err;
-            return res.status(200).json({token});
+            res.json({token});
         })
     } catch (error) {
-        console.log(error);
-        res.status(500).send("Server Error");
+        res.status(500).send('Server Error');
     }
 
 })
