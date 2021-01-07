@@ -9,6 +9,8 @@ import {
 export default (state,action) => {
     switch (action.type) {
         case GET_All_ARTICLE :
+        case USER_ARTICLE : 
+        case TAG_BASED_ARTICLE :
             return {
                 ...state,
                 Articles : action.payload,

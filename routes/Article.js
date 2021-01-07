@@ -49,15 +49,17 @@ router.post('/',[auth, [
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { tagname , heading , desc } =req.body;
+    const { tagname , heading , desc , username } =req.body;
     try {
+        console.log(req.user);
         let newArticle = new Articles({
             user : req.user.id,
+            username,
             tagname,
             heading,
             desc
         })
-
+        // console.log(newArticle);
         const article = await newArticle.save();
 
         res.json(article);

@@ -5,6 +5,10 @@ const ArticlesSchema = mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : 'user'
     },
+    username : {
+        type : String,
+        required : true,
+    },
     tagname : {
         type : String,
         required : true

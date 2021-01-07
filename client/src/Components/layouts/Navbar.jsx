@@ -27,10 +27,10 @@ function NavBar() {
     const ForUser = () => {
         return <>
             <li class="nav-item" style={{margin:"0px 100px"}}>
-                Hello, <span className='text-danger'>{user.name}</span>
+                Hello, <Link to={`/user/${user.username}`}><button className='btn btn-primary'>{user.name}</button></Link>
             </li>
             <li class="nav-item">
-                <button className='btn btn-danger' onClick={() => {return logoutUser()}}>LogOuT</button>
+                <a href="/"><button className='btn btn-danger' onClick={() => {return logoutUser()}}>LogOuT</button></a>
             </li>
         </>
     }

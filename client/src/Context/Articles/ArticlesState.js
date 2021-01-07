@@ -32,11 +32,50 @@ const ArticlesState = (props) => {
         }
     }
 
+    const getUserArticles = async(user) => {
+        try {
+            const res = await axios.get(`/api/articles/${user}`);
+            dispatch({type : USER_ARTICLE ,payload : res.data.Articles});
+        } catch (error) {
+            console.log(error.message);
+            dispatch({type : ARTICLE_ERROR , payload : error.message});
+        }
+    }
+
+    const createNewArticle = async(formData) => {
+        const config ={
+            header : {
+                'Content-Type' : 'application/json'
+            }
+        }
+        try {
+            const res = await axios.post('/api/articles/',formData,config);
+            console.log(res.data);
+            getUserArticles(formData.username);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const getAllArticlesByTAG = async(tagname) => {
+        console.log(tagname);
+        try {
+            const res = await axios.get(`/api/tags/${tagname}`);
+            dispatch({type : TAG_BASED_ARTICLE ,payload : res.data.Articles});
+        } catch (error) {
+            console.log(error.message);
+            dispatch({type : ARTICLE_ERROR , payload : error.message});
+        }
+    }
+
     return <ArticlesContext.Provider
         value={{
             Articles : state.Articles,
             error : state.error,
-            getAllArticles
+            getAllArticles,
+            getUserArticles,
+            createNewArticle,
+            getAllArticlesByTAG
         }}
     >
         {props.children}

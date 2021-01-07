@@ -1,16 +1,27 @@
-import React,{useState}from 'react'
+import React,{useState , useContext}from 'react'
+import {useHistory} from 'react-router-dom'
+
+import ArticlesContext from '../../Context/Articles/ArticlesContext'
 
 function TagArea() {
 
+    const articlesContext = useContext(ArticlesContext)
     const [tag, setTag] = useState('')
 
+    let history = useHistory();
     const onchange = (e) => {
         console.log("clicked");
         return setTag(e.target.value);
     }
 
     const searchTagName = () => {
-        return console.log(tag)
+        if(tag === ''){
+            alert('please enter tagName')
+        }else{
+            
+            history.push(`/tag/${tag}`);
+        }
+
     }
     return (
         <>
