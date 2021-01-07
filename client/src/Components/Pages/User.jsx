@@ -30,7 +30,8 @@ function User() {
                 </div>
             </div>
             <div className="articleArea" style={{  }}>
-                <ArticlesCom articles={Articles} />
+                {Articles.length == 0 ? <h1 className='text-center'><span className='text-danger'>No</span> Article , Create Article in a Simple Way</h1> : 
+                <ArticlesCom articles={Articles} />}
             </div>
         </div>
     )

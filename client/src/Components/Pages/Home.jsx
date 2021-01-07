@@ -1,42 +1,55 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
+import Loader from "../layouts/Loader";
 import Profile from "../layouts/Profile";
 import TagArea from "../layouts/TagArea";
 import ArticlesCom from "../Articles/ArticlesCom";
 import AuthContext from "../../Context/Auth/AuthContext";
-import ArticlesContext from '../../Context/Articles/ArticlesContext';
+import ArticlesContext from "../../Context/Articles/ArticlesContext";
 
-import loginImage from './LoginImage'
+import loginImage from "./LoginImage";
 
 function Home() {
     const authContext = useContext(AuthContext);
 
     const articlesContext = useContext(ArticlesContext);
-    const { Articles , getAllArticles} = articlesContext;
+    const { Articles, getAllArticles } = articlesContext;
 
-    useEffect(()=>{
+    const [loader, setloader] = useState(true);
+
+    useEffect(() => {
         getAllArticles();
-    },[])
+        setTimeout(() => {
+            setloader(false);
+        }, 1500);
+    }, []);
 
     useEffect(() => {
         authContext.loadingUser();
-    },[authContext.isAuthenticated]);
+    }, [authContext.isAuthenticated]);
 
-    return (
-        <div className="home">
-            <div className="articleArea">
-                <ArticlesCom articles={Articles}/>
-            </div>
-            
-            <div className="profileArea">
-                <div className="tagArea">
-                    <TagArea />
+    return loader ? (
+        <Loader />
+    ) : (
+            <div className="home">
+                <div className="articleArea">
+                    <ArticlesCom articles={Articles} />
                 </div>
-                {!authContext.isAuthenticated ? <div className='guestProfile'><img src={loginImage} alt=""/></div>:<Profile />}
+
+                <div className="profileArea">
+                    <div className="tagArea">
+                        <TagArea />
+                    </div>
+                    {!authContext.isAuthenticated ? (
+                        <div className="guestProfile">
+                            <img src={loginImage} alt="" />
+                        </div>
+                    ) : (
+                            <Profile />
+                        )}
+                </div>
             </div>
-            
-        </div>
-    );
+        );
 }
 
 export default Home;

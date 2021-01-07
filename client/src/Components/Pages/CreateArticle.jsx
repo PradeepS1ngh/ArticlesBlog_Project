@@ -29,7 +29,7 @@ function CreateArticle() {
     const onsubmit = (e) => {
         e.preventDefault();
         if (tagname === "" || heading === "" || desc === "") {
-            setAlert("Fill The Form",'warning');
+            setAlert("Fill All The Details" ,'warning');
         } else {
             articlesContext.createNewArticle({
                 tagname,
