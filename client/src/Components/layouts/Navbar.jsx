@@ -10,11 +10,11 @@ function NavBar() {
 
     const ForGuest = () => {
         return <>
-            <li class="nav-item">
-                <Link class="nav-link" to="/register">Register</Link>
+            <li class="navitem">
+                <Link class="navlink " to="/login">Login</Link>
             </li>
-            <li class="nav-item">
-                <Link class="nav-link" to="/login">Login</Link>
+            <li class="navitem">
+                <Link class="navlink lastnav" to="/register">Sign-up</Link>
             </li>
         </>
     }
@@ -26,30 +26,30 @@ function NavBar() {
 
     const ForUser = () => {
         return <>
-            <li class="nav-item" style={{margin:"0px 100px"}}>
+            {/* <li class="navitem" style={{margin:"0px 100px"}}>
                 Hello, <Link to={`/user/${user.username}`}><button className='btn btn-primary'>{user.name}</button></Link>
-            </li>
-            <li class="nav-item">
-                <a href="/"><button className='btn btn-danger' onClick={() => {return logoutUser()}}>LogOuT</button></a>
+            </li> */}
+            <li class="navitem lastnav">
+                <a href="/"  className='navlink' onClick={() => {return logoutUser()}}>LogOuT</a>
             </li>
         </>
     }
 
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar">
+                <Link class="logo" to="/">Articles</Link>
+                {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                </button> */}
+                <div class="navbar-navBox" >
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
+                        {/* <li class="nav-item active">
                             <Link class="nav-link" to='/'>Home <span class="sr-only">(current)</span></Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" to="/about">About</Link>
-                        </li>
+                        </li> */}
+                        {/* <li class="navitem">
+                            <Link class="navlink" to="/about">About</Link>
+                        </li> */}
                         {isAuthenticated ? <ForUser/> : <ForGuest/>}
                     </ul>
                 </div>

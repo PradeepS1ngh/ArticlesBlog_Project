@@ -2,23 +2,26 @@ import React,{useState , useContext}from 'react'
 import {useHistory} from 'react-router-dom'
 
 import ArticlesContext from '../../Context/Articles/ArticlesContext'
+import AlertContext from '../../Context/Alert/AlertContext'
 
 function TagArea() {
 
     const articlesContext = useContext(ArticlesContext)
     const [tag, setTag] = useState('')
 
+    //AlertContext
+    const alertContext = useContext(AlertContext);
+    const { setAlert } = alertContext;
+
     let history = useHistory();
     const onchange = (e) => {
-        console.log("clicked");
         return setTag(e.target.value);
     }
 
     const searchTagName = () => {
         if(tag === ''){
-            alert('please enter tagName')
+            setAlert('Please Enter a Tag' , 'danger')
         }else{
-            
             history.push(`/tag/${tag}`);
         }
 

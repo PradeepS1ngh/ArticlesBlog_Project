@@ -51,7 +51,7 @@ const ArticlesState = (props) => {
         try {
             const res = await axios.post('/api/articles/',formData,config);
             console.log(res.data);
-            getUserArticles(formData.username);
+            getAllArticles(formData.username);
         } catch (error) {
             console.log(error.message);
         }

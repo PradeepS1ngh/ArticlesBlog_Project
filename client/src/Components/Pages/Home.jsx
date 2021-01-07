@@ -6,6 +6,8 @@ import ArticlesCom from "../Articles/ArticlesCom";
 import AuthContext from "../../Context/Auth/AuthContext";
 import ArticlesContext from '../../Context/Articles/ArticlesContext';
 
+import loginImage from './LoginImage'
+
 function Home() {
     const authContext = useContext(AuthContext);
 
@@ -22,15 +24,17 @@ function Home() {
 
     return (
         <div className="home">
-            <div className="tagArea">
-                <TagArea />
-            </div>
             <div className="articleArea">
                 <ArticlesCom articles={Articles}/>
             </div>
+            
             <div className="profileArea">
-                <Profile />
+                <div className="tagArea">
+                    <TagArea />
+                </div>
+                {!authContext.isAuthenticated ? <div className='guestProfile'><img src={loginImage} alt=""/></div>:<Profile />}
             </div>
+            
         </div>
     );
 }
