@@ -5,7 +5,7 @@ const app = express();
 const connectDB = require('./Config/db');
 connectDB();
 
-app.use(express.json({extended : false}));
+app.use(express.json());
 
 // All Routes
 app.use('/api/user', require('./routes/User'));

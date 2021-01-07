@@ -1,17 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState , useContext , useEffect} from 'react'
 
-function Login() {
+import AuthContext from '../../Context/Auth/AuthContext';
+
+function Login(props) {
+
+    const authContext = useContext(AuthContext);
+    const { loginUser , clearError ,isAuthenticated ,error} = authContext;
 
     const [User, setUser] = useState({
         username : '',
         password : '',
     })
-    const {name , email , password ,password2 , proffession , age , phone,username} = User
-
+    const {password,username} = User
     const onchange = (e) => {
         setUser({...User , [e.target.name] : e.target.value});
     }
 
+
+    // onSubmit the login Form
     const onsubmit = (e) => {
         e.preventDefault();
         if(username === '' || password === ''){
@@ -19,8 +25,26 @@ function Login() {
             console.log('fill the form')
         }else{
             // UserRegister(User);
+            loginUser(User);
         }
     }
+
+
+    // Checking isAuthenticated or Not
+    useEffect(() => {
+        if(isAuthenticated){
+            props.history.push('/');
+        }else if(error === 'Invalid Credentials'){
+            alert('Invalid Credentials');
+        }else if(error === 'Invalid Credentials Password Not Match'){
+            alert('Invalid Credentials Password Not Match');
+        }
+        clearError();
+    }, [isAuthenticated,error,props.history])
+
+
+
+
     return (
         <div className='container register' style={{width:'40%' , marginTop:'10vh'}}>
             <h1 className='text-center'>Register</h1>

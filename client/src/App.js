@@ -17,6 +17,11 @@ import About from './Components/Pages/About';
 import Login from './Components/Pages/Login';
 import Register from './Components/Pages/Register';
 import Footer from './Components/layouts/Footer'
+import setAuthToken from './setAuthToken'
+
+if(localStorage.token){
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   return (

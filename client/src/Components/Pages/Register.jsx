@@ -1,12 +1,12 @@
 
 import React,{useState , useContext , useEffect} from 'react'
-
 import AuthContext from '../../Context/Auth/AuthContext';
 
-function Register() {
+function Register(props) {
 
+    // AuthContext for REgister user
     const authContext = useContext(AuthContext);
-    const { UserRegister , setAlert } = authContext;
+    const { UserRegister , setAlert , clearError ,isAuthenticated ,error} = authContext;
 
     const [User, setUser] = useState({
         name : '',
@@ -19,11 +19,12 @@ function Register() {
         password2 : ''
     })
     const {name , email , password ,password2 , proffession , age , phone,username} = User
-
     const onchange = (e) => {
         setUser({...User , [e.target.name] : e.target.value});
     }
 
+
+    // onSubmit the Register Form
     const onsubmit = (e) => {
         e.preventDefault();
         if(name === '' || username === '' || password === '' || password2 === '' || email === '' || phone === ''){
@@ -36,6 +37,23 @@ function Register() {
             UserRegister(User);
         }
     }
+
+
+    // Checking isAuthenticated or Not
+    useEffect(() => {
+        if(isAuthenticated){
+            props.history.push('/');
+        }
+        if(error === 'User Already Exists'){
+            // setAlert(error,'danger');
+            alert('User Exist');
+        }
+        clearError();
+    }, [error , props.history, isAuthenticated])
+
+
+
+
     return ( 
         <div className='container register' style={{width:'40%' , marginTop:'10vh'}}>
             <h1 className='text-center'>Register</h1>

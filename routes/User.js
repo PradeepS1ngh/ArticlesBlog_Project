@@ -46,11 +46,11 @@ router.post('/',[
                 id : user.id
             }
         }
-
         jwt.sign(payload,config.get('jwtSecret'),{expiresIn : 30000},(err,token) => {
             if(err) throw err;
             res.json({token});
         })
+        
     } catch (error) {
         res.status(500).send('Server Error');
     }

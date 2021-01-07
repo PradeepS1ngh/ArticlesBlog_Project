@@ -2,6 +2,7 @@ import React, { useReducer } from 'react'
 import axios from 'axios';
 import AuthContext from './AuthContext';
 import AuthReducer from './AuthReducer'
+import setAuthToken from '../../setAuthToken'
 
 import {
     REGISTER_SUCCESS,
@@ -29,8 +30,6 @@ const AuthState = props => {
 
     // Actions
     const UserRegister = async(user) => {
-
-        console.log(user);
         const config = {
             header : {
                 'content-Type' : 'application/json'
@@ -40,28 +39,47 @@ const AuthState = props => {
             const res = await axios.post('/api/user/',user,config);
             console.log(res);
             dispatch({type : REGISTER_SUCCESS , payload : res.data})
-            isloading();
+            loadingUser();
         } catch (error) {
             console.log(error.response.data.msg);
             dispatch({type : REGISTER_FAIL , payload : error.response.data});
         }
     }
 
-    const isloading = async() => {
+    const loadingUser = async() => {
 
         // Setting default header token
         if(localStorage.token){
-            axios.defaults.headers.common['x-auth-token'] = localStorage.token;
-        }else{
-            delete axios.defaults.headers.common['x-auth-token'];
+            setAuthToken(localStorage.token);
         }
-
         try {
             const res = await axios.get('/api/auth/');
             dispatch({type:USER_LOADED , payload : res.data});
         } catch (error) {
             dispatch({type:AUTH_ERROR , paylaod : error})
         }
+    }
+
+    const loginUser = async(user) => {
+        const config = {
+            header : {
+                'Content-Type' : 'application/json'
+            }
+        }
+        try {
+            const res = await axios.post('/api/auth/',user,config);
+            console.log(res.data);
+            dispatch({type:LOGIN_SUCCESS , payload:res.data});
+            loadingUser();
+        } catch (error) {
+            console.log(error.response.data.msg);
+            dispatch({type:LOGIN_FAIL , payload:error.response.data.msg});
+        }
+    }
+
+    const logoutUser = async() => {
+        console.log('logout Clicked');
+        dispatch({type:LOGOUT})
     }
 
     const clearError = () => {
@@ -76,8 +94,10 @@ const AuthState = props => {
             user : state.user,
             error : state.error,
             UserRegister,
-            isloading,
+            loadingUser,
             clearError,
+            loginUser,
+            logoutUser
         }}
     >
         {props.children}
