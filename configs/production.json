@@ -1,0 +1,4 @@
+{
+    "mongoURL" : "mongodb+srv://PradeepSingh:pradeep12345@articlesblog.7skez.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret" : "secret"
+}

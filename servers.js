@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 
 // MongoDB Connectivity
-const connectDB = require("./Config/db");
+const connectDB = require("./configs/db");
 connectDB();
 
 //Init Middleware
