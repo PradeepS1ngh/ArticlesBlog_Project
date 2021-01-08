@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+
 // MongoDB Connectivity
 const connectDB = require("./Config/db");
-
 connectDB();
 
 //Init Middleware
@@ -14,6 +14,7 @@ app.use("/api/user", require("./routes/user"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/articles", require("./routes/articles"));
 app.use("/api/tags", require("./routes/tags"));
+
 
 // Server Static assests in production
 if (process.env.NODE_ENV === "production") {

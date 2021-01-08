@@ -9,10 +9,13 @@ function Register(props) {
     const authContext = useContext(AuthContext);
     const { UserRegister, clearError, isAuthenticated, error } = authContext;
 
+    
     //AlertContext
     const alertContext = useContext(AlertContext);
     const { setAlert } = alertContext;
 
+
+    // Form Control
     const [User, setUser] = useState({
         name: '',
         email: '',
@@ -33,14 +36,11 @@ function Register(props) {
     const onsubmit = (e) => {
         e.preventDefault();
         if (name === '' || username === '' || password === '' || password2 === '' || email === '' || phone === '') {
-            // setAlert('Please fill the Form');
             setAlert('Fill the form','warning')
         } else if (password !== password2) {
-            // setAlert('Password MisMatch')
             setAlert('Password Not Same','warning')
         } else {
             UserRegister(User);
-            setAlert('Register SuccesS','success');
         }
     }
 
@@ -49,9 +49,9 @@ function Register(props) {
     useEffect(() => {
         if (isAuthenticated) {
             props.history.push('/');
+            setAlert('Register SuccesS','success');
         }
         if (error === 'User Already Exists') {
-            // setAlert(error,'danger');
             setAlert('User Already Exists','danger');
         }
         clearError();
@@ -70,7 +70,7 @@ function Register(props) {
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text customLabel" id="basic-addon2">Email</span>
-                    <input type="text" class="form-control customInputBox"  name='email' value={email} onChange={onchange}/>
+                    <input type="email" class="form-control customInputBox"  name='email' value={email} onChange={onchange}/>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text customLabel" id="basic-addon2">Proffession</span>

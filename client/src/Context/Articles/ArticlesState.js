@@ -21,7 +21,8 @@ const ArticlesState = (props) => {
 
     const [state, dispatch] = useReducer(ArticlesReducer, initialState)
 
-    // Get all Articles
+
+
     const getAllArticles = async() => {
         try {
             const res = await axios.get('/api/articles/');
@@ -32,6 +33,8 @@ const ArticlesState = (props) => {
         }
     }
 
+
+
     const getUserArticles = async(user) => {
         try {
             const res = await axios.get(`/api/articles/${user}`);
@@ -41,6 +44,8 @@ const ArticlesState = (props) => {
             dispatch({type : ARTICLE_ERROR , payload : error.message});
         }
     }
+
+
 
     const createNewArticle = async(formData) => {
         const config ={
@@ -57,6 +62,8 @@ const ArticlesState = (props) => {
         }
     }
 
+
+
     const getAllArticlesByTAG = async(tagname) => {
         console.log(tagname);
         try {
@@ -67,6 +74,7 @@ const ArticlesState = (props) => {
             dispatch({type : ARTICLE_ERROR , payload : error.message});
         }
     }
+
 
     return <ArticlesContext.Provider
         value={{

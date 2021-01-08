@@ -7,8 +7,6 @@ import {
     AUTH_ERROR,
     LOGOUT,
     CLEAR_ERROR,
-    SET_ALERT,
-    REMOVE_ALERT
 } from '../Types'
 
 

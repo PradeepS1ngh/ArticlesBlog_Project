@@ -1,11 +1,13 @@
 import React,{useContext,useEffect} from 'react'
 import {Link} from 'react-router-dom'
-
 import AuthContext from '../../Context/Auth/AuthContext';
 
 function Profile() {
+
+    //Auth Context
     const authContext = useContext(AuthContext)
     const {name,username,email,phone,proffession} = authContext.user;
+    
     return (
         authContext.isAuthenticated &&
         <div className='profile'>

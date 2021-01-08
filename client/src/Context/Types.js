@@ -1,3 +1,4 @@
+//Articles
 export const CREATE_ARTICLE = "CREATE_ARTICLE";
 export const GET_All_ARTICLE = "GET_All_ARTICLE";
 export const USER_ARTICLE = "USER_ARTICLE";
@@ -14,6 +15,6 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 
-
+//Alerts
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';

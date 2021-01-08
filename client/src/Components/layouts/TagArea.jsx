@@ -6,17 +6,21 @@ import AlertContext from '../../Context/Alert/AlertContext'
 
 function TagArea() {
 
+    //AuthContext
     const articlesContext = useContext(ArticlesContext)
     const [tag, setTag] = useState('')
+
 
     //AlertContext
     const alertContext = useContext(AlertContext);
     const { setAlert } = alertContext;
 
+
     let history = useHistory();
     const onchange = (e) => {
         return setTag(e.target.value);
     }
+
 
     const searchTagName = () => {
         if(tag === ''){
@@ -24,8 +28,10 @@ function TagArea() {
         }else{
             history.push(`/tag/${tag}`);
         }
-
     }
+
+
+
     return (
         <>
             <input type="text" className='form-control' onChange={onchange} name='tag' placeholder='Search By Tag...' value={tag}/>

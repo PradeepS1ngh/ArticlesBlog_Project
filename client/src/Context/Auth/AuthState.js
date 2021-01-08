@@ -13,8 +13,6 @@ import {
     AUTH_ERROR,
     LOGOUT,
     CLEAR_ERROR,
-    SET_ALERT,
-    REMOVE_ALERT,
 } from '../Types'
 
 
@@ -46,8 +44,9 @@ const AuthState = props => {
         }
     }
 
-    const loadingUser = async() => {
 
+
+    const loadingUser = async() => {
         // Setting default header token
         if(localStorage.token){
             setAuthToken(localStorage.token);
@@ -59,6 +58,8 @@ const AuthState = props => {
             dispatch({type:AUTH_ERROR , paylaod : error})
         }
     }
+
+
 
     const loginUser = async(user) => {
         const config = {
@@ -77,14 +78,19 @@ const AuthState = props => {
         }
     }
 
+
+
     const logoutUser = async() => {
         console.log('logout Clicked');
         dispatch({type:LOGOUT})
     }
 
+
+
     const clearError = () => {
         dispatch({type : CLEAR_ERROR});
     }
+
 
 
     return <AuthContext.Provider

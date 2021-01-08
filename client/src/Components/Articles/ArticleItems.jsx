@@ -15,11 +15,8 @@ function ArticleItems({article}) {
             </div>
             <hr style={{ margin: "1rem 2rem", borderTop: "1px solid rgb(161, 161, 161)" }} />
             <div className='Articleimage'>
-                {/* <img src="https://markateur.com/wp-content/uploads/2017/04/articles.jpg" alt=""/> */}
             </div>
             <p>{desc}</p>
-            
-            
         </div>
     )
 }

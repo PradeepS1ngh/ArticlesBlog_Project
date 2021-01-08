@@ -6,16 +6,23 @@ import AuthContext from '../../Context/Auth/AuthContext';
 
 function User() {
     let { username } = useParams();
+
+    //ArticlesContext
     const articlesContext = useContext(ArticlesContext);
     const { Articles, getUserArticles } = articlesContext;
 
+
+    //AuthContext
     const authContext = useContext(AuthContext)
     const {name,email,phone,proffession} = authContext.user;
+
 
     useEffect(() => {
         getUserArticles(username);
     }, [Articles])
 
+
+    
     return (
         <div className="user">
             <div className='profile'>

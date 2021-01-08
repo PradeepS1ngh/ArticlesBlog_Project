@@ -11,21 +11,31 @@ function CreateArticle() {
     const alertContext = useContext(AlertContext);
     const { setAlert } = alertContext;
 
+
     //AuthContext
     const authContext = useContext(AuthContext);
     const { user } = authContext;
 
+
     //ArticleContext
     const articlesContext = useContext(ArticlesContext);
 
+
     let history = useHistory();
 
+    //Form Data
     const [article, setArticle] = useState({
         tagname: "",
         heading: "",
         desc: "",
     });
+    const { tagname, heading, desc } = article;
+    const onchange = (e) => {
+        setArticle({ ...article, [e.target.name]: e.target.value });
+    };
 
+
+    //OnSubmit
     const onsubmit = (e) => {
         e.preventDefault();
         if (tagname === "" || heading === "" || desc === "") {
@@ -41,12 +51,9 @@ function CreateArticle() {
             history.push("/");
         }
     };
-    const { tagname, heading, desc } = article;
 
-    const onchange = (e) => {
-        setArticle({ ...article, [e.target.name]: e.target.value });
-    };
 
+    
     return (
         <div className="create-article ">
             <h1 className="text-center text-light">Create New Article</h1>
