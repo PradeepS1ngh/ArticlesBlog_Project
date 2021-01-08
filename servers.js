@@ -10,10 +10,10 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 // All Routes
-app.use("/api/user", require("./routes/user"));
-app.use("/api/auth", require("./routes/auth"));
-app.use("/api/articles", require("./routes/articles"));
-app.use("/api/tags", require("./routes/tags"));
+app.use("/api/user", require("./routes/userServer"));
+app.use("/api/auth", require("./routes/authServer"));
+app.use("/api/articles", require('./routes/articlesServer'));
+app.use("/api/tags", require("./routes/tagServer"));
 
 
 // Server Static assests in production
