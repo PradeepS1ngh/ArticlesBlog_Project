@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 //Schema
-const Articles = require('../models/Articles');
+const Articles = require('../model/Articles');
 //Protective Routing
 const auth = require('../Middleware/auth');
 const { body, validationResult } = require('express-validator');

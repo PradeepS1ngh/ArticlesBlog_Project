@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express();
 
-const Articles = require('../models/Articles');
+const Articles = require('../model/Articles');
 
 //@route   GET /api/tag/tagName
 //@desc    get articles by tagName

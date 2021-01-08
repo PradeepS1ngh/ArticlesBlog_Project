@@ -2,14 +2,14 @@
   "name": "articleblog",
   "version": "1.0.0",
   "description": "",
-  "main": "servers.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node servers.js",
-    "servers": "nodemon servers.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run servers\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev" : "concurrently \"npm run server \" \"npm run client \"",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
