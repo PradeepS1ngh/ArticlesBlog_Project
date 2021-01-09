@@ -8,7 +8,7 @@ const { body, validationResult } = require('express-validator');
 
 
 
-//@route   GET /api/articles
+//@route   GET /  api/articles
 //@desc    get all articles
 //@access  public 
 router.get('/',async (req,res) => {
