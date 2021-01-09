@@ -13,7 +13,7 @@ function ArticleItems({article}) {
                 <div><i class="fas fa-user m-3"></i>{username}</div>
                 <div><i class="far fa-clock m-3"></i>{date}</div>
             </div>
-            <hr style={{ margin: "1rem 2rem", borderTop: "1px solid rgb(161, 161, 161)" }} />
+            <hr style={{ margin: "1rem 0rem", borderTop: "1px solid rgb(161, 161, 161)" }} />
             <div className='Articleimage'>
             </div>
             <p>{desc}</p>

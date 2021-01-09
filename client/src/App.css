@@ -2,48 +2,272 @@
   margin: 0;
   padding: 0;
 }
-
-body {
-  /* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
-  background-color: rgba(1, 90, 255, 0.925);
-  /* opacity: 0.5; */
+html {
+  /* font-size: 62.5%; */
+  font-size: 70%;
 }
 
-.Maincontainer {
-  /* margin-top: 10vh; */
-  width: 100vw;
-  min-height: 100vh;
+body {
+  background-color: rgba(1, 90, 255, 0.925);
+}
 
-  /* background-color: #9ffaff; */
-  margin-top: 10vh;
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .customButton {
   color: #fdfeff;
+  padding: 1em 0em;
   background-color: rgba(1, 90, 255, 0.925);
   border-color: rgba(1, 90, 255, 0.925);
 }
 
 .customLabel {
-  width: 100px;
-  text-align: center;
+  font-size: 1.2rem;
+  width: 10em;
   background-color: rgba(1, 90, 255, 0.925);
   color: white;
-  padding: 5px;
+  padding: .5em 1em;
 }
 
 .customInputBox {
+  width: 10em;
   background-color: none;
   border: none;
   border: 2px solid rgba(1, 90, 255, 0.925);
 }
 
+/* -----------    Navbar   --------------------------*/
+.navbar {
+  height: 10vh;
+  background-color: rgba(1, 90, 255, 0.925);
+  background-image: linear-gradient(
+    to right,
+    rgba(1, 90, 255, 0.925) 0%,
+    rgba(56, 125, 255, 0.856) 100%
+  );
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
+  box-shadow: 0px 2px 3px rgb(255, 254, 254);
+  z-index: 100000;
+}
+
+.navbar-navBox {
+  height: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navitem {
+  font-size: 1rem;
+  margin: 0px 1em;
+}
+
+.navlink {
+  font-size: 2.5rem;
+}
+
+.lastnav {
+  font-size: 2rem;
+  border: 0.1rem solid white;
+  border-radius: 1rem;
+  padding: 0.1em 0.75em;
+}
+
+.logo {
+  color: white;
+  text-shadow: 0.11em 0.01em 5px rgb(138, 138, 138);
+  font-weight: 700;
+  font-size: 3.7rem;
+}
+
+.logo:hover a {
+  font-size: 2rem;
+}
+
+/*------------------ Maincontainer    ---------------*/
+
+.Maincontainer {
+  font-size: 2rem;
+  width: 100vw;
+  min-height: 100vh;
+  margin-top: 10vh;
+}
+
+
+
+
+
+/* -----------------    Home   --------------------------*/
+.home {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "box1 box2";
+  grid-template-rows: auto;
+}
+
+.articleArea {
+  grid-area: box1;
+}
+
+.profileArea {
+  grid-area: box2;
+  background-color: yellow;
+}
+
+
+
+
+/*----------- ArticleArea    -------------*/
+
+.articleArea {
+  font-size: 1rem;
+  margin: 1em;
+}
+
+.articleItem {
+  align-items: flex-start;
+  font-size: 1rem;
+  width: 100%;
+  min-height: 80vh;
+  background-color: white;
+  margin: 2em 0em;
+  padding: 2em 3em;
+  box-shadow: 0.5em 0.3em 12px rgb(161, 161, 161),
+    -0.1em -0.1em 3px rgb(190, 190, 190);
+}
+
+.tag {
+  padding: 0.8em 3em;
+  font-size: 1.3rem;
+}
+
+.heading h2 {
+  font-size: 4rem;
+}
+
+.UserandDate {
+  padding: 0.1em 1.8em;
+  font-size: 1.5rem;
+  display: flex;
+  font-weight: 200;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.articleItem p {
+  text-align: justify;
+  font-family: "Tajawal", sans-serif;
+  padding: 0em 0.7em;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+/*----------------- profileArea    -----------------*/
+
+.profileArea {
+  margin: .5em;
+  margin-top: 2em;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.068);
+  backdrop-filter: blur(5px);
+}
+
+
+
+.tagArea {
+  text-align: center;
+  margin: 10% 0%;
+}
+
+
+.tagArea input{
+  height: 3rem;
+  font-size: 1.3rem;
+}
+
+.tagArea button{
+  height: 3rem;
+  margin: 1em;
+  padding: 0em 3em;
+}
+
+.guestProfile img{
+  width: 100%;
+}
+
+
+/* -----------    profile home page   --------------------------*/
+
+.profile {
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+}
+
+.profile h2 {
+  font-size: 3rem;
+  margin: .5em 0em;
+  text-align: center;
+}
+
+.userDetails {
+  font-size: 1.5rem;
+    font-size: 1rem;
+    /* width: 5em; */
+    display: flex;
+    margin: 2em 4em;
+}
+
+.userDetails h3{
+  font-family: "Tajawal", sans-serif;
+  margin-left: 2em;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.profile-btn {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.profilebtn {
+  font-size: 1.5rem;
+  position: relative;
+  padding: 0.2em 1em;
+  margin: .5em;
+}
+
+
+
 /* -----------    Alert   --------------------------*/
 .customAlert {
+  font-size: 1.5rem;
   z-index: 100000;
   position: fixed;
   top: 10vh;
   width: 100%;
+  text-align: center;
 }
 
 /* -----------    loader   --------------------------*/
@@ -58,8 +282,8 @@ body {
 }
 
 .obj {
-  width: 6px;
-  height: 60px;
+  width: .7rem;
+  height: 5rem;
   background-color: white;
   margin: 0 5px;
   border-radius: 10px;
@@ -100,80 +324,6 @@ body {
   animation-delay: 0.7s;
 }
 
-/* -----------    Navbar   --------------------------*/
-.navbar {
-  height: 10vh;
-  background-color: rgba(1, 90, 255, 0.925);
-  background-image: linear-gradient(
-    to right,
-    rgba(1, 90, 255, 0.925) 0%,
-    rgba(56, 125, 255, 0.856) 100%
-  );
-  position: fixed;
-  top: 0;
-  width: 100%;
-  /* font-family: 'Cuprum', sans-serif; */
-  font-family: "Tajawal", sans-serif;
-  font-weight: 400;
-  box-shadow: 0px 2px 3px rgb(255, 254, 254);
-  z-index: 100000;
-}
-
-#navbarNav {
-  text-align: center;
-  margin-right: 0%;
-}
-
-.navbar-navBox {
-  height: 100%;
-  width: 80vw;
-  display: flex;
-  flex-direction: row;
-}
-
-.navbar-nav {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  /* background-color: yellow; */
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.navitem {
-  margin: 0px 1vw;
-}
-
-.navlink {
-  font-size: 1.5rem;
-}
-
-a {
-  color: white;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-.lastnav {
-  border: 3px solid white;
-  border-radius: 7px;
-  padding: 3px 10px;
-}
-
-.logo {
-  color: white;
-  text-shadow: 1px 1px 2px white;
-  font-weight: 700;
-  font-size: 2.5rem;
-}
-
-.logo a:hover {
-  font-size: 2rem;
-}
-
 /* -----------    footer   --------------------------*/
 .footer {
   width: 100vw;
@@ -184,147 +334,35 @@ a:hover {
   z-index: 10000;
 }
 
-/* -----------    Home   --------------------------*/
-.Maincontainer .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-areas: "box1 box2";
-  grid-template-rows: auto;
-}
 
-/*----------- TagArea    -------------*/
 
-.profileArea {
-  grid-area: box2;
-  min-height: 80%;
-  /* background-color: blue; */
-  width: 24vw;
-  position: fixed;
-  top: 3vh;
-  right: -3vw;
-  margin: 5%;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.068);
-  backdrop-filter: blur(5px);
-}
-.articleArea {
-  grid-area: box1;
-  height: 100%;
-  margin: 5%;
-}
 
-.tagArea {
-  display: flex;
-  flex-direction: row;
-  margin: 10% 0%;
-}
 
-/* -----------    ARTICLES   --------------------------*/
-
-.article {
-  width: 100%;
-  /* background-color: blueviolet; */
-  /* background-color: white; */
-  height: 100%;
-}
-
-.articleItem {
-  align-items: flex-start;
-  width: 100%;
-  min-height: 80vh;
-  background-color: white;
-  margin: 20px 0px;
-  padding: 20px 30px;
-  box-shadow: 2px 2px 3px rgb(161, 161, 161), -2px -2px 3px rgb(190, 190, 190);
-}
-
-.tag {
-  padding: 10px 30px;
-  font-size: 1rem;
-}
-
-.heading h2 {
-  font-size: 3.5rem;
-}
-
-.UserandDate {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.Articleimage {
-  width: 100%;
-  height: 30%;
-  background-color: red;
-  /* width: 100%;
-  height: 30%; */
-}
-
-.Articleimage img {
-  object-fit: contain;
-}
-
-.articleItem p {
-  font-family: "Tajawal", sans-serif;
-  font-size: 2rem;
-  font-weight: 200;
-}
-
-/* -----------    profile home page   --------------------------*/
-
-.profile {
-  color: white;
-  text-align: left;
-  margin-left: 5%;
-}
-
-.profile h2 {
-  margin: 10px 20px;
-  text-align: center;
-}
-
-.userImage {
-  width: 50px;
-}
-
-.profile-btn {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.profilebtn {
-  position: relative;
-  width: auto;
-  margin: 10px;
-  left: 20%;
-}
 
 /*-----------  register  ------------------------- */
 
 .register {
   position: relative;
   top: 3vh;
-  width: 35vw;
+  width: 50%;
   padding: 2%;
-  border: 1px solid rgba(1, 90, 255, 0.925);
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
 }
 
 .register h1 {
+  font-size: 5rem;
   text-align: center;
   color: #fdfeff;
   padding-top: 1.5vh;
   height: 10vh;
   background-color: rgba(1, 90, 255, 0.925);
-  margin-top: 10px;
-  margin-bottom: 60px;
+  margin-top: .5em;
+  margin-bottom: 1em;
 }
 
 .register .registerForm {
-  padding: 0 30px;
+  padding: 0 3em;
 }
 
 /* -----------    create-article  --------------------------*/
@@ -388,24 +426,40 @@ a:hover {
   width: 500px;
 }
 
-/* -----------       UserPage    ----------------*/
-.user .profile {
+
+/* -----------------    User   --------------------------*/
+.user {
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "box2 box1";
+  grid-template-rows: auto;
+}
+
+.user .profileArea {
+  grid-area: box2;
   color: white;
-  width: 20vw;
   background-color: rgba(255, 255, 255, 0.068);
   backdrop-filter: blur(5px);
   box-shadow: 2px 2px 3px grey, -2px -2px 3px grey;
-  padding: 10vh 0vw;
-  position: fixed;
-  top: 18%;
-  left: -2%;
 }
 
+
 .user .articleArea {
-  margin: 15vh 0px;
-  margin-left: 25vw;
-  width: 70vw;
+  grid-area: box1;
 }
+
+.user .profileArea .profile h2{
+  font-size: 5rem;
+}
+
+.user .profileArea .profile h2{
+  font-size: 5rem;
+}
+
+
+
 
 .user .profile .profile-btn .profilebtn {
   width: 100%;
@@ -435,4 +489,141 @@ a:hover {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #f9a323;
+}
+
+
+
+
+
+
+/* ------------      Mid Screen view   ---------------------*/
+
+@media only screen and (max-width: 1024px) {
+
+  html{
+    font-size: 55%;
+  }
+  .home {
+    display: grid;
+    grid-template-rows: 30rem auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "box2"
+      "box1";
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .profileArea {
+    margin: 0px;
+  }
+
+  .tagArea {
+    display: flex;
+    margin-top: 1rem;
+    padding: 1rem 10rem;
+  }
+
+  .tagArea button{
+    height: 3rem;
+    margin: 0em 2em;
+    padding: 0em 3em;
+  }
+
+  .guestProfile {
+    width: 40rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+  }
+
+  .profile {
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .userDetails{
+    font-size: 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    margin: 0;
+  }
+
+
+  .profile-btn {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .register .registerForm {
+    padding: 0 2em;
+  }
+
+  .user {
+    display: grid;
+    grid-template-rows: 30rem auto;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "box2"
+      "box1";
+  }
+
+  .user .profileArea .profile h2{
+    font-size: 3rem;
+  }
+
+}
+
+
+/* ------------      ipad Screen view   ---------------------*/
+
+
+@media only screen and (max-width: 768px) {
+
+  html{
+    font-size: 50%;
+  }
+
+  .register{
+    width: 70%;
+  }
+
+  .register .registerForm {
+    padding: 0 1em;
+  }
+}
+
+
+
+
+
+/* ------------      MObile view   ---------------------*/
+
+@media only screen and (max-width: 480px) {
+
+  html{
+    font-size: 40%;
+  }
+
+  .heading h2 {
+    font-size: 3rem;
+  }
+
+  .register{
+    width: 85%;
+  }
+  
+  .register .registerForm {
+    padding: 0 1em;
+  }
+
 }

@@ -55,7 +55,7 @@ function Login(props) {
 
 
     return (
-        <div className='container register' style={{width:'40%' , marginTop:'10vh'}}>
+        <div className='container register glass'>
             <h1 className='text-center'>Login</h1>
             <form onSubmit={onsubmit} className='registerForm'>
                 <div class="input-group mb-3">

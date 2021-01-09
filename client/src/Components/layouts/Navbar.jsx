@@ -21,8 +21,8 @@ function NavBar() {
     
     const ForUser = () => {
         return <>
-            <li class="navitem lastnav">
-                <a href="/"  className='navlink' onClick={() => {return logoutUser()}}>LogOuT</a>
+            <li class="navitem ">
+                <a href="/"  className='navlink lastnav' onClick={() => {return logoutUser()}}>LogOuT</a>
             </li>
         </>
     }

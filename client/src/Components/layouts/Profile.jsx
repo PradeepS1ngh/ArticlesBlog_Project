@@ -12,10 +12,10 @@ function Profile() {
         authContext.isAuthenticated &&
         <div className='profile'>
             <h2>{username}</h2>
-            {name && <div className='m-2'><i class="fas fa-user userImage"></i><>{name}</></div>}
-            {email && <div className='m-2'><i class="fas fa-envelope userImage"></i><>{email}</></div>}
-            {proffession && <div className='m-2'><i class="fas fa-briefcase userImage"></i><>{proffession}</></div>}
-            {phone && <div className='m-2'><i class="fas fa-phone-volume userImage"></i><>{phone}</></div>}
+            {name && <div className='userDetails'><i class="fas fa-user icon"></i><h3>{name}</h3></div>}
+            {email && <div className='userDetails'><i class="fas fa-envelope icon"></i><h3>{email}</h3></div>}
+            {proffession && <div className='userDetails'><i class="fas fa-briefcase icon"></i><h3>{proffession}</h3></div>}
+            {phone && <div className='userDetails'><i class="fas fa-phone-volume icon"></i><h3>{phone}</h3></div>}
             <div className='profile-btn'>
                 <Link to={`/user/${username}`}><button className='btn btn-primary profilebtn customButton'>View Profile</button></Link>
                 <Link to='/publish'><button className='btn btn-warning profilebtn'>Create Article</button></Link>
